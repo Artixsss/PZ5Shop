@@ -1,0 +1,74 @@
+﻿<Window x:Class="PZ5Shop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Магазин" Height="720" Width="1200" MinWidth="960" MinHeight="640"
+        Background="{StaticResource AppBackgroundBrush}">
+    <Grid Margin="18">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Row="0" Grid.ColumnSpan="2" Background="{StaticResource SurfaceBrush}" CornerRadius="16" Padding="16" Margin="0,0,0,16" Effect="{StaticResource CardShadow}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock Text="PZ5 Магазин" FontSize="22" FontWeight="SemiBold" Foreground="{StaticResource PrimaryTextBrush}" />
+                    <TextBlock Text=" | товары и заказы" Margin="8,0,0,0" Foreground="{StaticResource SecondaryTextBrush}" VerticalAlignment="Center" />
+                </StackPanel>
+                <Grid Grid.Column="1">
+                    <StackPanel x:Name="GuestPanel" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <StackPanel.Style>
+                            <Style TargetType="StackPanel">
+                                <Setter Property="Visibility" Value="Visible" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsAuthenticated}" Value="True">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
+                        <Button Content="Войти" Width="120" Margin="0,0,8,0" Command="{Binding ShowLoginCommand}" Style="{StaticResource SecondaryButtonStyle}" />
+                        <Button Content="Регистрация" Width="140" Command="{Binding ShowRegisterCommand}" />
+                    </StackPanel>
+                    <StackPanel x:Name="UserPanel" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <StackPanel.Style>
+                            <Style TargetType="StackPanel">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsAuthenticated}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
+                        <TextBlock Text="{Binding UserDisplayName}" VerticalAlignment="Center" Margin="0,0,12,0" Foreground="{StaticResource PrimaryTextBrush}" />
+                        <Button Content="Выход" Width="120" Command="{Binding LogoutCommand}" Style="{StaticResource SecondaryButtonStyle}" />
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="0" Background="{StaticResource SurfaceBrush}" CornerRadius="16" Padding="12" Margin="0,0,16,0" Effect="{StaticResource CardShadow}">
+            <StackPanel>
+                <Button Content="Магазин" Style="{StaticResource NavButtonStyle}" Command="{Binding NavigateShopCommand}" />
+                <Button Content="Корзина" Style="{StaticResource NavButtonStyle}" Command="{Binding NavigateCartCommand}" Margin="0,8,0,0" />
+                <Button Content="Заказы" Style="{StaticResource NavButtonStyle}" Command="{Binding NavigateOrdersCommand}" Margin="0,8,0,0" IsEnabled="{Binding IsAuthenticated}" />
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="1" CornerRadius="20" Padding="8" Background="Transparent">
+            <ContentControl Content="{Binding CurrentView}" />
+        </Border>
+    </Grid>
+</Window>
