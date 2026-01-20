@@ -12,7 +12,7 @@
         </Grid.RowDefinitions>
 
         <Border Background="{StaticResource SurfaceBrush}" CornerRadius="14" Padding="16" Margin="0,0,0,12">
-            <TextBlock Text="������" FontSize="20" FontWeight="SemiBold" Foreground="{StaticResource PrimaryTextBrush}" />
+            <TextBlock Text="Заказы" FontSize="20" FontWeight="SemiBold" Foreground="{StaticResource PrimaryTextBrush}" />
         </Border>
 
         <Grid Grid.Row="1">
@@ -37,9 +37,9 @@
                     <DataTemplate>
                         <Border Background="{StaticResource CardBrush}" CornerRadius="12" Padding="12" Margin="0,0,0,10" Effect="{StaticResource CardShadow}">
                             <StackPanel>
-                                <TextBlock Text="{Binding Id, StringFormat=����� �{0}}" FontWeight="SemiBold" Foreground="{StaticResource PrimaryTextBrush}" />
+                                <TextBlock Text="{Binding Id, StringFormat=Заказ №{0}}" FontWeight="SemiBold" Foreground="{StaticResource PrimaryTextBrush}" />
                                 <TextBlock Text="{Binding OrderDate, StringFormat={}{0:dd.MM.yyyy}}" Foreground="{StaticResource SecondaryTextBrush}" />
-                                <TextBlock Text="{Binding TotalAmount, StringFormat={}{0:N2} ?}" Foreground="{StaticResource AccentBrush}" />
+                                <TextBlock Text="{Binding TotalAmount, StringFormat={}{0:N2} руб.}" Foreground="{StaticResource AccentBrush}" />
                                 <TextBlock Text="{Binding Status}" Foreground="{StaticResource SecondaryTextBrush}" />
                             </StackPanel>
                         </Border>
@@ -53,14 +53,14 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <TextBlock Text="������ ������" FontSize="16" FontWeight="SemiBold" Foreground="{StaticResource PrimaryTextBrush}" />
+                    <TextBlock Text="Детали заказа" FontSize="16" FontWeight="SemiBold" Foreground="{StaticResource PrimaryTextBrush}" />
                     <ListView Grid.Row="1" ItemsSource="{Binding OrderItems}" Background="Transparent" BorderThickness="0" Margin="0,12,0,0">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="�����" DisplayMemberBinding="{Binding ProductName}" Width="200" />
-                                <GridViewColumn Header="����������" DisplayMemberBinding="{Binding Quantity}" Width="90" />
-                                <GridViewColumn Header="����" DisplayMemberBinding="{Binding PriceAtOrder, StringFormat={}{0:N2} ?}" Width="120" />
-                                <GridViewColumn Header="�����" DisplayMemberBinding="{Binding TotalPrice, StringFormat={}{0:N2} ?}" Width="120" />
+                                <GridViewColumn Header="Товар" DisplayMemberBinding="{Binding ProductName}" Width="200" />
+                                <GridViewColumn Header="Количество" DisplayMemberBinding="{Binding Quantity}" Width="90" />
+                                <GridViewColumn Header="Цена" DisplayMemberBinding="{Binding PriceAtOrder, StringFormat={}{0:N2} руб.}" Width="120" />
+                                <GridViewColumn Header="Сумма" DisplayMemberBinding="{Binding TotalPrice, StringFormat={}{0:N2} руб.}" Width="120" />
                             </GridView>
                         </ListView.View>
                     </ListView>
@@ -79,7 +79,7 @@
                     </Style.Triggers>
                 </Style>
             </Border.Style>
-            <TextBlock Text="�������, ����� ����������� ������" FontSize="14" Foreground="{StaticResource SecondaryTextBrush}" />
+            <TextBlock Text="Войдите, чтобы просмотреть заказы" FontSize="14" Foreground="{StaticResource SecondaryTextBrush}" />
         </Border>
     </Grid>
 </UserControl>

@@ -24,7 +24,7 @@
                 </StackPanel>
                 <StackPanel Grid.Column="1" HorizontalAlignment="Right">
                     <TextBlock Text="Итого" Foreground="{StaticResource SecondaryTextBrush}" />
-                    <TextBlock Text="{Binding TotalAmount, StringFormat={}{0:N2} ₽}" FontSize="18" FontWeight="Bold" Foreground="{StaticResource AccentBrush}" />
+                    <TextBlock Text="{Binding TotalAmount, StringFormat={}{0:N2} руб.}" FontSize="18" FontWeight="Bold" Foreground="{StaticResource AccentBrush}" />
                 </StackPanel>
             </Grid>
         </Border>
@@ -48,14 +48,14 @@
                             </Grid>
                             <StackPanel Grid.Column="1" Margin="12,0,12,0">
                                 <TextBlock Text="{Binding Product.Name}" FontWeight="SemiBold" Foreground="{StaticResource PrimaryTextBrush}" />
-                                <TextBlock Text="{Binding Product.Price, StringFormat={}{0:N2} ₽}" Foreground="{StaticResource SecondaryTextBrush}" />
+                                <TextBlock Text="{Binding Product.Price, StringFormat={}{0:N2} руб.}" Foreground="{StaticResource SecondaryTextBrush}" />
                             </StackPanel>
                             <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <Button Content="-" Width="32" Height="32" Command="{Binding DataContext.DecreaseCommand, RelativeSource={RelativeSource AncestorType=ListView}}" CommandParameter="{Binding}" />
                                 <TextBlock Text="{Binding Quantity}" Width="40" TextAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" />
                                 <Button Content="+" Width="32" Height="32" Command="{Binding DataContext.IncreaseCommand, RelativeSource={RelativeSource AncestorType=ListView}}" CommandParameter="{Binding}" />
                             </StackPanel>
-                            <TextBlock Grid.Column="3" Text="{Binding TotalPrice, StringFormat={}{0:N2} ₽}" VerticalAlignment="Center" FontWeight="SemiBold" Foreground="{StaticResource AccentBrush}" />
+                            <TextBlock Grid.Column="3" Text="{Binding TotalPrice, StringFormat={}{0:N2} руб.}" VerticalAlignment="Center" FontWeight="SemiBold" Foreground="{StaticResource AccentBrush}" />
                             <Button Grid.Column="4" Content="Удалить" Margin="12,0,0,0" Command="{Binding DataContext.RemoveCommand, RelativeSource={RelativeSource AncestorType=ListView}}" CommandParameter="{Binding}" />
                         </Grid>
                     </Border>
