@@ -30,23 +30,30 @@
             </Grid>
         </Border>
 
-        <ListView Grid.Row="1" ItemsSource="{Binding ProductsView}" Background="Transparent" BorderThickness="0" ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalContentAlignment="Stretch">
+        <ListView Grid.Row="1"
+                  ItemsSource="{Binding ProductsView}"
+                  Background="Transparent"
+                  BorderThickness="0"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  ScrollViewer.CanContentScroll="False"
+                  HorizontalContentAlignment="Center">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel ItemWidth="220" ItemHeight="320" IsItemsHost="True" />
+                    <WrapPanel ItemWidth="240" ItemHeight="350" IsItemsHost="True" HorizontalAlignment="Center" />
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border Width="220" Height="320" Margin="8" Padding="12" CornerRadius="16" Background="{StaticResource CardBrush}" Effect="{StaticResource CardShadow}">
+                    <Border Margin="8" Padding="12" CornerRadius="16" Background="{StaticResource CardBrush}" Effect="{StaticResource CardShadow}">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
-                                <RowDefinition Height="*" />
+                                <RowDefinition Height="190" />
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
-                            <TextBlock Text="{Binding Name}" FontSize="14" FontWeight="SemiBold" TextWrapping="Wrap" Foreground="{StaticResource PrimaryTextBrush}" />
+                            <TextBlock Text="{Binding Name}" FontSize="14" FontWeight="SemiBold" TextWrapping="Wrap" Foreground="{StaticResource PrimaryTextBrush}" MaxHeight="40" />
                             <Grid Grid.Row="1" Margin="0,8,0,8">
                                 <Border Background="{StaticResource PlaceholderBrush}" CornerRadius="10" />
                                 <TextBlock Text="Нет фото" Foreground="{StaticResource SecondaryTextBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
