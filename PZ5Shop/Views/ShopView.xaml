@@ -38,7 +38,7 @@
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   ScrollViewer.CanContentScroll="False"
                   HorizontalContentAlignment="Left"
-                  Padding="12,0,12,8">
+                  Padding="12,0,12,6">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel ItemWidth="230" ItemHeight="340" IsItemsHost="True" HorizontalAlignment="Left" />
