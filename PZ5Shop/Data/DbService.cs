@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -123,7 +123,10 @@ namespace PZ5Shop.Data
                 var items = db.Carts.Where(c => c.UserId == userId).ToList();
                 if (items.Count > 0)
                 {
-                    db.Carts.RemoveRange(items);
+                    foreach (var item in items)
+                    {
+                        db.Carts.Remove(item);
+                    }
                     db.SaveChanges();
                 }
             }
@@ -187,7 +190,7 @@ namespace PZ5Shop.Data
 
         private int GetProcessingStatusId(PZ5ShopDbEntities db)
         {
-            var status = db.OrderStatus.FirstOrDefault(s => s.Name == "Â îáðàáîòêå");
+            var status = db.OrderStatus.FirstOrDefault(s => s.Name == "Ð’ Ð¾Ð±Ñ€Ð°Ð±Ð¾Ñ‚ÐºÐµ");
             if (status != null)
             {
                 return status.Id;
@@ -198,3 +201,4 @@ namespace PZ5Shop.Data
         }
     }
 }
+
