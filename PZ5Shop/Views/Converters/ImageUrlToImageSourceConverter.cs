@@ -1,5 +1,6 @@
 using System;
 using System.Globalization;
+using System.IO;
 using System.Windows.Data;
 using System.Windows.Media.Imaging;
 
@@ -17,9 +18,16 @@ namespace PZ5Shop.Views.Converters
 
             try
             {
+                if (!Uri.TryCreate(url, UriKind.Absolute, out var uri))
+                {
+                    var baseDir = AppDomain.CurrentDomain.BaseDirectory;
+                    var fullPath = Path.Combine(baseDir, url);
+                    uri = new Uri(fullPath, UriKind.Absolute);
+                }
+
                 var image = new BitmapImage();
                 image.BeginInit();
-                image.UriSource = new Uri(url, UriKind.RelativeOrAbsolute);
+                image.UriSource = uri;
                 image.CacheOption = BitmapCacheOption.OnLoad;
                 image.EndInit();
                 return image;
