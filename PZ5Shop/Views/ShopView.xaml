@@ -37,19 +37,20 @@
                   ScrollViewer.VerticalScrollBarVisibility="Auto"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   ScrollViewer.CanContentScroll="False"
-                  HorizontalContentAlignment="Center">
+                  HorizontalContentAlignment="Left"
+                  Padding="12,0,12,8">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel ItemWidth="240" ItemHeight="350" IsItemsHost="True" HorizontalAlignment="Center" />
+                    <WrapPanel ItemWidth="230" ItemHeight="340" IsItemsHost="True" HorizontalAlignment="Left" />
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border Margin="8" Padding="12" CornerRadius="16" Background="{StaticResource CardBrush}" Effect="{StaticResource CardShadow}">
+                    <Border Margin="4" Padding="12" CornerRadius="16" Background="{StaticResource CardBrush}" Effect="{StaticResource CardShadow}">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
-                                <RowDefinition Height="190" />
+                                <RowDefinition Height="200" />
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>

@@ -51,9 +51,9 @@
                                 <TextBlock Text="{Binding Product.Price, StringFormat={}{0:N2} руб.}" Foreground="{StaticResource SecondaryTextBrush}" />
                             </StackPanel>
                             <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Button Content="-" Width="32" Height="32" Command="{Binding DataContext.DecreaseCommand, RelativeSource={RelativeSource AncestorType=ListView}}" CommandParameter="{Binding}" />
+                                <Button Content="-" Width="30" Height="30" Padding="0" FontSize="16" FontWeight="SemiBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Command="{Binding DataContext.DecreaseCommand, RelativeSource={RelativeSource AncestorType=ListView}}" CommandParameter="{Binding}" />
                                 <TextBlock Text="{Binding Quantity}" Width="40" TextAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" />
-                                <Button Content="+" Width="32" Height="32" Command="{Binding DataContext.IncreaseCommand, RelativeSource={RelativeSource AncestorType=ListView}}" CommandParameter="{Binding}" />
+                                <Button Content="+" Width="30" Height="30" Padding="0" FontSize="16" FontWeight="SemiBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Command="{Binding DataContext.IncreaseCommand, RelativeSource={RelativeSource AncestorType=ListView}}" CommandParameter="{Binding}" />
                             </StackPanel>
                             <TextBlock Grid.Column="3" Text="{Binding TotalPrice, StringFormat={}{0:N2} руб.}" VerticalAlignment="Center" FontWeight="SemiBold" Foreground="{StaticResource AccentBrush}" />
                             <Button Grid.Column="4" Content="Удалить" Margin="12,0,0,0" Command="{Binding DataContext.RemoveCommand, RelativeSource={RelativeSource AncestorType=ListView}}" CommandParameter="{Binding}" />
