@@ -120,6 +120,13 @@
     <Compile Include="Data\DbService.cs" />
     <Compile Include="Data\PasswordHasher.cs" />
     <Compile Include="Data\SessionStorage.cs" />
+    <Compile Include="Models\Carts.cs" />
+    <Compile Include="Models\Categories.cs" />
+    <Compile Include="Models\OrderItems.cs" />
+    <Compile Include="Models\Orders.cs" />
+    <Compile Include="Models\OrderStatus.cs" />
+    <Compile Include="Models\Products.cs" />
+    <Compile Include="Models\Users.cs" />
     <Compile Include="ViewModels\AppState.cs" />
     <Compile Include="ViewModels\CartItemViewModel.cs" />
     <Compile Include="ViewModels\CartViewModel.cs" />
